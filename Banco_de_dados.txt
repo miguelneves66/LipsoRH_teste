@@ -1,8 +1,6 @@
+DROP DATABASE IF EXISTS lipson_db;
 CREATE DATABASE IF NOT EXISTS lipson_db;
-
-drop database lipson_db;
 USE lipson_db;
-
 
 CREATE TABLE usuario (
     cpf VARCHAR(11) PRIMARY KEY NOT NULL,
@@ -10,36 +8,30 @@ CREATE TABLE usuario (
     endereco VARCHAR(100) NOT NULL,
     data_admissao DATE,
     cargo VARCHAR(50),
-    senha VARCHAR(50),
-    data_nascimento DATE
+    senha VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS rh (
-    cpf INT PRIMARY KEY NOT NULL,
+    cpf VARCHAR(11) PRIMARY KEY NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    endereco varchar (100) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
     data_admissao DATE NOT NULL,
-    cargo INT,
-    senha VARCHAR(32) NOT NULL
+    cargo VARCHAR(50), 
+    senha VARCHAR(255) NOT NULL
 );
 
--- Inserir um usuário de teste (Senha '1234' para exemplo)
--- Nota: mudei o CPF para STRING/VARCHAR no futuro se possível, mas mantive INT como você pediu
 INSERT INTO usuario (cpf, nome, endereco, data_admissao, cargo, senha) 
-VALUES (123456779, 'Pedro Guerdis', 'Rua Exemplo, 123', '2024-01-10', 1, '1234');
+VALUES ('12345678901','Pedro Guerdis','Rua Exemplo, 123','2024-01-10','Analista','hash_da_senha_aqui');
 
-INSERT INTO usuario (cpf, nome, endereco, data_admissao, cargo, senha) 
-VALUES ('123456779', 'Pedro Guerdis', 'Rua Exemplo, 123', '2024-01-10', '1', '1234');
+INSERT INTO rh (cpf,nome,endereco,data_admissao,cargo,senha) 
+VALUES ('98765432100','Gestor Administrativo','Av. Industrial, 500','2026-05-13','Gerente','admin_hash');
 
-INSERT INTO rh (cpf, nome, endereco, data_admissao, cargo, senha) 
-VALUES ('98765432100', 'Gestor Administrativo', 'Av. Industrial, 500', '2026-05-13', 1, 'admin123');
-select * from usuario;
+SELECT * FROM usuario;
 
 
 
 
-
-Comandos para ligar o servidor
+/*Comandos para ligar o servidor
 
 ./mvnw spring-boot:run
 
@@ -47,4 +39,4 @@ ls
 
 $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 
-echo $env:JAVA_HOME
+echo $env:JAVA_HOME*/
