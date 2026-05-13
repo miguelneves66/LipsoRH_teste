@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gerar Holerite"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#5D4037"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -10,14 +38,14 @@
                     android:id="@+id/edtNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nome do funcionário" />
+                    android:hint="Nome do funcionário"/>
 
                 <EditText
                     android:id="@+id/edtCargo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Cargo" />
+                    android:hint="Cargo"/>
 
                 <EditText
                     android:id="@+id/edtSalario"
@@ -25,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Salário"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"/>
 
                 <EditText
                     android:id="@+id/edtDescontos"
@@ -33,23 +61,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Descontos"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"/>
 
                 <EditText
                     android:id="@+id/edtMes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Mês de referência" />
+                    android:hint="Mês de referência"/>
 
                 <Button
                     android:id="@+id/btnGerarPdf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gerar PDF"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/lipson_brown"
-                    android:textColor="@color/white" />
+                    android:text="Gerar PDF"
+                    android:backgroundTint="#5D4037"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
 
