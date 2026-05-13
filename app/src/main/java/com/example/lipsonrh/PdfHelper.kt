@@ -16,35 +16,85 @@ class PdfHelper {
 
         val document = PdfDocument()
 
-        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val pageInfo =
+            PdfDocument.PageInfo.Builder(
+                595,
+                842,
+                1
+            ).create()
+
         val page = document.startPage(pageInfo)
 
         val canvas = page.canvas
+
         val paint = Paint()
 
         paint.textSize = 22f
         paint.isFakeBoldText = true
 
-        canvas.drawText("LIPSON RH", 220f, 80f, paint)
+        canvas.drawText(
+            "LIPSON RH",
+            220f,
+            80f,
+            paint
+        )
 
         paint.textSize = 16f
         paint.isFakeBoldText = false
 
-        canvas.drawText("Funcionário: ${holerite.nomeFuncionario}", 60f, 180f, paint)
-        canvas.drawText("Cargo: ${holerite.cargo}", 60f, 220f, paint)
-        canvas.drawText("Mês: ${holerite.mesReferencia}", 60f, 260f, paint)
-        canvas.drawText("Salário: R$ ${holerite.salario}", 60f, 320f, paint)
-        canvas.drawText("Descontos: R$ ${holerite.descontos}", 60f, 360f, paint)
+        canvas.drawText(
+            "Funcionário: ${holerite.nomeFuncionario}",
+            60f,
+            180f,
+            paint
+        )
 
-        val liquido = holerite.salario - holerite.descontos
+        canvas.drawText(
+            "Cargo: ${holerite.cargo}",
+            60f,
+            220f,
+            paint
+        )
+
+        canvas.drawText(
+            "Mês: ${holerite.mesReferencia}",
+            60f,
+            260f,
+            paint
+        )
+
+        canvas.drawText(
+            "Salário: R$ ${holerite.salario}",
+            60f,
+            320f,
+            paint
+        )
+
+        canvas.drawText(
+            "Descontos: R$ ${holerite.descontos}",
+            60f,
+            360f,
+            paint
+        )
+
+        val liquido =
+            holerite.salario - holerite.descontos
 
         paint.isFakeBoldText = true
-        canvas.drawText("Líquido: R$ $liquido", 60f, 430f, paint)
+
+        canvas.drawText(
+            "Líquido: R$ $liquido",
+            60f,
+            430f,
+            paint
+        )
 
         document.finishPage(page)
 
         val pasta = File(
-            context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS),
+            context.getExternalFilesDir(
+                Environment.DIRECTORY_DOCUMENTS
+            ),
             "holerites"
         )
 
@@ -58,6 +108,7 @@ class PdfHelper {
         )
 
         document.writeTo(FileOutputStream(arquivo))
+
         document.close()
 
         return arquivo
