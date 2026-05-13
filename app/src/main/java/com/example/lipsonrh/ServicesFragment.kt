@@ -22,11 +22,13 @@ class ServicesFragment : Fragment() {
         )
 
         /*
-         * BOTÃO / CARD DE HOLERITES
+         * ABRIR HOLERITES
          */
 
         val btnHolerites =
-            view.findViewById<LinearLayout>(R.id.btnHolerites)
+            view.findViewById<LinearLayout>(
+                R.id.btnHolerites
+            )
 
         btnHolerites.setOnClickListener {
 
@@ -40,11 +42,13 @@ class ServicesFragment : Fragment() {
         }
 
         /*
-         * BOTÃO / CARD GERAR HOLERITE (RH)
+         * ABRIR GERAÇÃO DE HOLERITE
          */
 
         val btnGerarHolerite =
-            view.findViewById<LinearLayout>(R.id.btnGerarHolerite)
+            view.findViewById<LinearLayout>(
+                R.id.btnGerarHolerite
+            )
 
         btnGerarHolerite.setOnClickListener {
 
