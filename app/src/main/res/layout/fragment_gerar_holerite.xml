@@ -1,1 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/edtNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome do funcionário" />
+
+                <EditText
+                    android:id="@+id/edtCargo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Cargo" />
+
+                <EditText
+                    android:id="@+id/edtSalario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Salário"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/edtDescontos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Descontos"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/edtMes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Mês de referência" />
+
+                <Button
+                    android:id="@+id/btnGerarPdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gerar PDF"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/lipson_brown"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
