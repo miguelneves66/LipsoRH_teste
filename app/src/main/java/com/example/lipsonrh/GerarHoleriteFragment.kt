@@ -23,31 +23,47 @@ class GerarHoleriteFragment : Fragment() {
             false
         )
 
-        val edtNome = view.findViewById<EditText>(R.id.edtNome)
-        val edtCargo = view.findViewById<EditText>(R.id.edtCargo)
-        val edtSalario = view.findViewById<EditText>(R.id.edtSalario)
-        val edtDescontos = view.findViewById<EditText>(R.id.edtDescontos)
-        val edtMes = view.findViewById<EditText>(R.id.edtMes)
-        val btnGerar = view.findViewById<Button>(R.id.btnGerarPdf)
+        val edtNome =
+            view.findViewById<EditText>(R.id.edtNome)
+
+        val edtCargo =
+            view.findViewById<EditText>(R.id.edtCargo)
+
+        val edtSalario =
+            view.findViewById<EditText>(R.id.edtSalario)
+
+        val edtDescontos =
+            view.findViewById<EditText>(R.id.edtDescontos)
+
+        val edtMes =
+            view.findViewById<EditText>(R.id.edtMes)
+
+        val btnGerar =
+            view.findViewById<Button>(R.id.btnGerarPdf)
 
         btnGerar.setOnClickListener {
 
             val holerite = Holerite(
                 nomeFuncionario = edtNome.text.toString(),
                 cargo = edtCargo.text.toString(),
-                salario = edtSalario.text.toString().toDouble(),
-                descontos = edtDescontos.text.toString().toDouble(),
+                salario = edtSalario.text.toString()
+                    .toDoubleOrNull() ?: 0.0,
+                descontos = edtDescontos.text.toString()
+                    .toDoubleOrNull() ?: 0.0,
                 mesReferencia = edtMes.text.toString(),
                 caminhoPdf = ""
             )
 
             val pdfHelper = PdfHelper()
 
-            val arquivo = pdfHelper.gerarPdf(requireContext(), holerite)
+            val arquivo = pdfHelper.gerarPdf(
+                requireContext(),
+                holerite
+            )
 
             Toast.makeText(
                 requireContext(),
-                "PDF criado em: ${arquivo.absolutePath}",
+                "PDF criado com sucesso!",
                 Toast.LENGTH_LONG
             ).show()
         }
